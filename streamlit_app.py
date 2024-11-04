@@ -40,9 +40,8 @@ if travel_experience:
     try:
         # Get classification result
         classification_result = classification_chain.run({"feedback": travel_experience})
-        st.write("Classification result:", classification_result)
 
-        # Display the appropriate response based on classification
+        # Display the appropriate response based on classification without showing the classification result
         response_message = feedback_responses.get(classification_result, "Unexpected classification result: {}".format(classification_result))
         st.write(response_message)
         
