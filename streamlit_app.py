@@ -18,12 +18,6 @@ feedback_classification_template = """Classify the feedback into one of the foll
 2. "external_factor" if the feedback is negative but due to reasons beyond the airline's control (e.g., weather disruptions, airport delays).
 3. "positive_experience" if the feedback is positive.
 
-Please respond with only one word: "service_issue", "external_factor", or "positive_experience".
-
-Feedback:
-{feedback}
-"""
-
 # Classification chain
 classification_prompt = PromptTemplate(input_variables=["feedback"], template=feedback_classification_template)
 classification_chain = LLMChain(llm=chatbot, prompt=classification_prompt)
