@@ -25,8 +25,11 @@ if travel_experience:
         # Get response from the chatbot
         response = chatbot(prompt)
 
-        # Display the AI's response
-        st.write(response['choices'][0]['message']['content'])
+        # Check the response and display the content
+        if response and isinstance(response, str):
+            st.write(response)  # Display the response directly
+        else:
+            st.error("Unexpected response format received from the model.")
 
     except Exception as error:
         st.error(f"An error occurred while processing your feedback: {error}")
