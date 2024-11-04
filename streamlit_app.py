@@ -6,7 +6,7 @@ from langchain.chat_models import ChatOpenAI
 # Initialize ChatOpenAI with the API key
 chatbot = ChatOpenAI(openai_api_key=st.secrets["OpenAIKey"], model="gpt-4o-mini")
 
-# Streamlit setup
+# Streamlit App
 st.title("RN Airline Experience Form")
 
 # User feedback input
