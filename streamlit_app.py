@@ -6,23 +6,23 @@ from langchain.chat_models import ChatOpenAI
 # Initialize ChatOpenAI with the API key
 chatbot = ChatOpenAI(openai_api_key=st.secrets["OpenAIKey"], model="gpt-4o-mini")
 
-# Streamlit App
+# Streamlit setup
 st.title("RN Airline Experience Form")
 
 # User feedback input
 travel_experience = st.text_input("Please share your recent travel experience with us:", "")
-
-Please respond with only one word: "service_issue", "external_factor", or "positive_experience".
-
-Feedback:
-{feedback}
-"""
 
 # Template to classify feedback type
 feedback_classification_template = """Classify the feedback into one of the following categories:
 1. "service_issue" if the feedback is negative and specifically related to the services provided by the airline (e.g., lost luggage, poor cabin service, flight delays).
 2. "external_factor" if the feedback is negative but due to reasons beyond the airline's control (e.g., weather disruptions, airport delays).
 3. "positive_experience" if the feedback is positive.
+
+Please respond with only one word: "service_issue", "external_factor", or "positive_experience".
+
+Feedback:
+{feedback}
+"""
 
 # Classification chain
 classification_prompt = PromptTemplate(input_variables=["feedback"], template=feedback_classification_template)
