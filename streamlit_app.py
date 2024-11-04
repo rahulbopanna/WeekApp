@@ -12,6 +12,12 @@ st.title("RN Airline Experience Form")
 # User feedback input
 travel_experience = st.text_input("Please share your recent travel experience with us:", "")
 
+Please respond with only one word: "service_issue", "external_factor", or "positive_experience".
+
+Feedback:
+{feedback}
+"""
+
 # Template to classify feedback type
 feedback_classification_template = """Classify the feedback into one of the following categories:
 1. "service_issue" if the feedback is negative and specifically related to the services provided by the airline (e.g., lost luggage, poor cabin service, flight delays).
